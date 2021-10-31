@@ -65,7 +65,6 @@ async function run() {
         });
 
         // delete event
-
         app.delete("/booking/:key", async (req, res) => {
             console.log(req.params.id);
             const result = await bookingCollection.deleteOne({
@@ -81,7 +80,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-    res.send("tourism travel server is running");
+    res.send("developer tour server is running");
 });
 
 app.listen(port, () => {
