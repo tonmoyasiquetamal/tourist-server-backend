@@ -1,7 +1,9 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
+// cors for fetch error restrict
 const cors = require("cors");
+// dotenv for hide DB key
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
