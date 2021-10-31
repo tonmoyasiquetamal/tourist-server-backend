@@ -12,6 +12,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Mongo DB Atlas Connection Uri
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.4yggv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 console.log(uri);
 const client = new MongoClient(uri, {
@@ -86,5 +87,7 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log("server running at port", port);
 });
+
 // const database = client.db("developerTour");
+
 // const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.4yggv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
