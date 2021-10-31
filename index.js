@@ -59,6 +59,25 @@ async function run() {
             res.json(result);
         });
 
+        // PUT API
+        app.put("/booking/:id", async (req, res) => {
+            const id = req.params.id;
+            const updateDetails = req.body;
+            const query = { _id: ObjectId(id) };
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    status: updateDetails.status,
+                },
+            };
+            const result = await booking.updateOne(
+                query,
+                updateDoc,
+                options
+            );
+            res.send(result);
+        });
+
         // GET booking
         app.get("/booking", async (req, res) => {
             const result = await bookingCollection.find({}).toArray();
