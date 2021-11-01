@@ -17,6 +17,7 @@ const client = new MongoClient(uri, {
     useUnifiedTopology: true,
 });
 
+// Connect & Active Mongo DB Server
 async function run() {
     try {
         await client.connect();
